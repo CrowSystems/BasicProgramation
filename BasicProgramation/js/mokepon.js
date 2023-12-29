@@ -4,7 +4,7 @@ let vidasJugador = 3
 let vidasEnemigo = 3
 
 function iniciarJuego() {
-    let sectionSeleccionarAtaque = document.getElementById('selecconar-ataque')
+    let sectionSeleccionarAtaque = document.getElementById('seleccionar-ataque')
     sectionSeleccionarAtaque.style.display = 'none'
 
     let sectionReiniciar = document.getElementById('reiniciar')
@@ -34,7 +34,7 @@ function seleccionarMascotaJugador(){
     let inputHipodoge = document.getElementById('hipodoge')
     let inputCapipepo = document.getElementById('capipepo')
     let inputRatigueya = document.getElementById('ratigueya')
-    let spanMascotaJugador = document.getElementById('mscota-jugador')
+    let spanMascotaJugador = document.getElementById('mascota-jugador')
 
     if(inputHipodoge.checked) {
         spanMascotaJugador.innerHTML = 'Hipodoge'
@@ -91,7 +91,38 @@ function ataqueAleatorioEnemigo(){
 }
 
 function combate(){
+    let spanVidasJugador = document.getElementById('vidas-jugador')
+    let spanVidasEnemigo = document.getElementById('vidas-enemigo')
 
+    if(ataqueEnemigo == ataqueJugador) {
+        crearMensaje("EMPATE")
+    } else if(ataqueJugador == 'FUEGO' && ataqueEnemigo == 'TIERRA'){
+        crearMensaje("GANASTE")
+        vidasEnemigo--
+        spanVidasEnemigo.innerHTML = vidasEnemigo
+    } else if(ataqueJugador == 'AGUA' && ataqueEnemigo == 'FUEGO'){
+        crearMensaje("GANASTE")
+        vidasEnemigo--
+        spanVidasEnemigo.innerHTML = vidasEnemigo
+    } else if(ataqueJugador == 'TIERRA' && ataqueEnemigo == 'AGUA'){
+        crearMensaje("GANASTE")
+        vidasEnemigo--
+        spanVidasEnemigo.innerHTML = vidasEnemigo
+    } else {
+        crearMensaje("PERDISTE")
+        vidasJugador--
+        spanVidasJugador.innerHTML = vidasJugador
+    }
+    
+    revisarVidas()
+}
+
+function revisarVidas() {
+    if(vidasEnemigo == 0) {
+        crearMensajeFinal("FELICITACIONES! Ganaste :) ")
+    } else if(vidasJugador == 0) {
+        crearMensajeFinal("Lo siento, perdiste :( ")
+    }
 }
 
 function crearMensaje(resultado){
@@ -99,15 +130,13 @@ function crearMensaje(resultado){
     let ataqueDeljugador = document.getElementById('ataques-del-jugador')
     let ataqueDelEnemigo = ducument.getElementById('ataques-del-enemigo')
 
-    let notificacion = document.createElement('p')
     let nuevoAtaqueDelJugador = document.createElement('p')
     let nuevoAtaqueDelEnemigo = document.createElement('p')
 
-    notificacion.innerHTML = resultado
+    sectionMensajes.innerHTML = resultado
     nuevoAtaqueDelJugador.innerHTML = ataqueDeljugador
     nuevoAtaqueDelEnemigo.innerHTML = ataqueDelEnemigo
 
-    sectionMensajes.appendChild(notificacion)
     ataqueDeljugador.appendChild(nuevoAtaqueDelJugador)
     ataqueDelEnemigo.appendChild(nuevoAtaqueDelEnemigo)
 }
@@ -115,7 +144,6 @@ function crearMensaje(resultado){
 function crearMensajeFinal(resultadoFinal){
     let sectionMensajes = document.getElementById('resultado')
 
-    
     sectionMensajes.innerHTML = resultadoFinal
 
     let botonFuego = document.getElementById('boton-fuego')
