@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@300&display=swap');
 
-body{
+body {
     font-family: 'Poppins', sans-serif;
     background-color: #041562;
 }
@@ -15,7 +15,7 @@ body{
 .titulo {
     color: white;
     font-size: 32px;
-    font-family: 'Fredoka One', cursive;
+    font-family: 'Fredoka', cursive;
 }
 
 .subtitulo {
@@ -23,12 +23,12 @@ body{
     font-size: 20px;
 }
 
-.tarjetas, .tarjetas-ataques {
-    display: flex;
-    gap: 10px;
+.tarjetas, tarjetas-ataques {
+    display: white;
+    font-size: 20px;
 }
 
-.tarjeta-de-mokepon{
+.tarjeta-de-mokemon {
     width: 180px;
     height: 100px;
     background: #11468F;
@@ -45,11 +45,11 @@ body{
     color: white;
 }
 
-.tarjeta-de-mokepon img{
+.tarjeta-de-mokemon img{
     width: 80px;
 }
 
-#boton-mascota {
+#boton-mascota{
     width: 180px;
     height: 40px;
     border-radius: 20px;
@@ -67,8 +67,9 @@ body{
 input {
     display: none;
 }
-input:checked + label{
-    background-color: #5D8BF5;
+
+input:checked + label {
+    background-color: #5D8BF4;
 }
 
 #seleccionar-ataque {
@@ -94,7 +95,7 @@ input:checked + label{
 
 #mensajes {
     width: 280px;
-    background: rgb(22, 70, 242);
+    background: #EEEEEE;
     padding: 20px;
     margin-top: 20px;
     border-radius: 20px;
@@ -103,7 +104,7 @@ input:checked + label{
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
     display: flex;
-    justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
@@ -115,7 +116,7 @@ input:checked + label{
 
 .ataques {
     display: grid;
-    grid-template-columns: 100px 100px;
+    grid-template-columns: 100px, 100px;
     color: white;
 }
 
@@ -123,6 +124,7 @@ input:checked + label{
     font-size: 32px;
     margin-bottom: 0;
 }
+
 .ataques-jugador, ataques-enemigo {
     display: flex;
     flex-direction: column;
