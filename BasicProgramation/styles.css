@@ -118,5 +118,6 @@ input:checked + label {
 @media (max-width: 360px) {
   .tarjetas, .tarjetas-ataques {
     flex-direction: column;
+    color: aqua;
   }
 }
